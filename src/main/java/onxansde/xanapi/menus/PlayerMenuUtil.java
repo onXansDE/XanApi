@@ -1,9 +1,6 @@
-package onxans.xanapi.menus;
+package onxansde.xanapi.menus;
 
-import onxans.xanapi.utils.AdvancedPlayer;
-import org.bukkit.entity.Player;
-
-import java.util.List;
+import onxansde.xanapi.utils.AdvancedPlayer;
 
 public class PlayerMenuUtil {
 

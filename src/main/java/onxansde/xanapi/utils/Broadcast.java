@@ -1,4 +1,4 @@
-package onxans.xanapi.utils;
+package onxansde.xanapi.utils;
 
 public class Broadcast {
 

@@ -1,7 +1,7 @@
-package onxans.xanapi.menus;
+package onxansde.xanapi.menus;
 
-import onxans.xanapi.XanApi;
-import onxans.xanapi.utils.AdvancedItem;
+import onxansde.xanapi.XanApi;
+import onxansde.xanapi.utils.AdvancedItem;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.event.inventory.InventoryClickEvent;
