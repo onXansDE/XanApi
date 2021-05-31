@@ -1,19 +1,12 @@
-package onxans.xanapi.utils;
+package onxansde.xanapi.utils;
 
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
-import onxans.xanapi.XanApi;
-import org.bukkit.Bukkit;
-import org.bukkit.Sound;
+import onxansde.xanapi.XanApi;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.UUID;
 

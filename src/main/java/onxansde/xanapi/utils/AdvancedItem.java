@@ -1,7 +1,7 @@
-package onxans.xanapi.utils;
+package onxansde.xanapi.utils;
 
 import com.google.common.collect.Multimap;
-import onxans.xanapi.XanApi;
+import onxansde.xanapi.XanApi;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.attribute.Attribute;
@@ -19,8 +19,6 @@ import org.yaml.snakeyaml.external.biz.base64Coder.Base64Coder;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.*;
 
 public class AdvancedItem implements java.io.Serializable {
