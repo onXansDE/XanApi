@@ -1,5 +1,6 @@
 package onxansde.xanapi.events;
 
+import onxansde.xanapi.XanApi;
 import onxansde.xanapi.utils.AdvancedPlayer;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,12 +13,12 @@ public class JoinLeave implements Listener {
     public void onPlayerJoin(PlayerJoinEvent e) {
         AdvancedPlayer player = new AdvancedPlayer(e.getPlayer());
 
-        AdvancedPlayer.list.add(player);
+        XanApi.getInstance().players.list.add(player);
     }
 
     @EventHandler
     public void onPlayerLeave(PlayerQuitEvent e) {
-        AdvancedPlayer player = AdvancedPlayer.getPlayerByUuid(e.getPlayer().getUniqueId());
-        AdvancedPlayer.list.remove(player);
+        AdvancedPlayer player = XanApi.getInstance().players.getPlayerByUuid(e.getPlayer().getUniqueId());
+        XanApi.getInstance().players.list.remove(player);
     }
 }

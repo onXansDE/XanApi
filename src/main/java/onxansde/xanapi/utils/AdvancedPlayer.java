@@ -84,21 +84,4 @@ public class AdvancedPlayer {
         }
         return false;
     }
-
-    //STATIC
-    public static ArrayList<AdvancedPlayer> list = new ArrayList<AdvancedPlayer>();
-
-    public static AdvancedPlayer getPlayerByUuid(UUID uuid) {
-        for (AdvancedPlayer ap : list) {
-            if(ap.player.getUniqueId().compareTo(uuid) == 0) return ap;
-        }
-        return null;
-    }
-
-    public static AdvancedPlayer getPlayerByName(String name) {
-        for(AdvancedPlayer ap : list) {
-            if(ap.player.getDisplayName().equals(name)) return ap;
-        }
-        return null;
-    }
 }

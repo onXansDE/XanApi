@@ -6,7 +6,7 @@
 
     <groupId>onxansde</groupId>
     <artifactId>XanApi</artifactId>
-    <version>0.2</version>
+    <version>0.4</version>
     <packaging>jar</packaging>
 
     <name>XanApi</name>

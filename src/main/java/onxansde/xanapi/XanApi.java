@@ -1,6 +1,8 @@
 package onxansde.xanapi;
 
 import onxansde.xanapi.events.JoinLeave;
+import onxansde.xanapi.events.MenuListener;
+import onxansde.xanapi.utils.Players;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -17,6 +19,8 @@ public final class XanApi extends JavaPlugin {
 
     public static FileConfiguration config;
 
+    public Players players = new Players();
+
     @Override
     public void onEnable() {
         // Plugin startup logic
@@ -26,6 +30,7 @@ public final class XanApi extends JavaPlugin {
         prefix = config.getString("prefix");
 
         Bukkit.getPluginManager().registerEvents(new JoinLeave(), this);
+        Bukkit.getPluginManager().registerEvents(new MenuListener(), this);
     }
 
     @Override
