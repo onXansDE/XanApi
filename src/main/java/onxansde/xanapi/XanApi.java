@@ -9,6 +9,7 @@ import onxansde.xanapi.utils.*;
 import org.bukkit.Bukkit;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -22,7 +23,7 @@ public final class XanApi extends JavaPlugin {
 
     public String prefix = "§5XanApi §8> §7";
 
-    public FileConfiguration config;
+    public YamlConfiguration config;
 
     public Players players = new Players();
     public Logger logger;

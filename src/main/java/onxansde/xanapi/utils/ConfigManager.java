@@ -41,7 +41,7 @@ public class ConfigManager {
         return null;
     }
 
-    public FileConfiguration getFileAsConfig(String module, String name) {
+    public YamlConfiguration getFileAsConfig(String module, String name) {
         File file = new File(getModuleFolder(module), name);
         if(file.exists()) {
             XanApi.instance.logger.log("Reading File as Config > " + module+"/"+name);
@@ -71,7 +71,7 @@ public class ConfigManager {
         }
     }
 
-    public void saveConfig(String module, String name, FileConfiguration config) {
+    public void saveConfig(String module, String name, YamlConfiguration config) {
         File target = new File(getModuleFolder(module), name);
 
         try {
@@ -104,7 +104,7 @@ public class ConfigManager {
         }
     }
 
-    public void saveDefaultConfig(String module, String name, FileConfiguration config) {
+    public void saveDefaultConfig(String module, String name, YamlConfiguration config) {
         File target = new File(getModuleFolder(module), name);
 
         if(target.exists()) return;
