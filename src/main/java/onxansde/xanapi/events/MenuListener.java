@@ -1,5 +1,6 @@
 package onxansde.xanapi.events;
 
+import onxansde.xanapi.XanApi;
 import onxansde.xanapi.menus.Menu;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

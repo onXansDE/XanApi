@@ -5,4 +5,5 @@ api-version: 1.16
 authors: [ onXans ]
 description: Needed for a lot of Plugins by onXans
 commands:
-  debug: Enables or disables Debugmessages
+  debugtoggle:
+    description: Enables or disables Debugmessages
