@@ -6,6 +6,7 @@ import onxansde.xanapi.commands.DebugCommand;
 import onxansde.xanapi.events.JoinLeave;
 import onxansde.xanapi.events.MenuListener;
 import onxansde.xanapi.utils.Broadcast;
+import onxansde.xanapi.utils.PermUtils;
 import onxansde.xanapi.utils.Players;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -28,6 +29,7 @@ public final class XanApi extends JavaPlugin {
     public Logger logger;
     public Broadcast broadcast;
     public LuckPerms perms;
+    public PermUtils permUtils;
     public Economy economy;
 
     @Override
@@ -37,6 +39,8 @@ public final class XanApi extends JavaPlugin {
         instance = this;
 
         logger = new Logger();
+
+        permUtils = new PermUtils();
 
         saveDefaultConfig();
         config = getConfig();
