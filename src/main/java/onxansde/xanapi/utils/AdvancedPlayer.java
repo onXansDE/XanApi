@@ -67,6 +67,14 @@ public class AdvancedPlayer {
         return user.getInheritedGroups(user.getQueryOptions());
     }
 
+    public List<String> getGroupStrings() {
+        List<String> strings = new ArrayList<>();
+        for(Group g : getGroups()) {
+            strings.add(g.getName());
+        }
+        return strings;
+    }
+
     public void addGroup(Group group) {
         User user = getUser();
         Node node = InheritanceNode.builder(group).build();
