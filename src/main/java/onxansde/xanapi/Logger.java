@@ -1,6 +1,7 @@
 package onxansde.xanapi;
 
 import onxansde.xanapi.utils.Broadcast;
+import org.bukkit.Bukkit;
 
 public class Logger {
 
@@ -13,15 +14,22 @@ public class Logger {
     }
 
     public void log(String message) {
-        System.out.println("["+prefix+"] " + "["+getCallerClassName()+"/"+getCallerFunctionName()+"] > " + message);
+        Bukkit.getConsoleSender().sendMessage("["+prefix+"] " + "["+getCallerClassName()+"] > " + message);
         if(debug) {
             XanApi.instance.broadcast.broadcastRaw("["+prefix+"/Debug] " + "["+getCallerClassName()+"] §8> §7" + message,"xanapi.debug.read");
         }
     }
 
+    public void logerror(String message) {
+        Bukkit.getConsoleSender().sendMessage("["+prefix+"/Error] " + "["+getCallerClassName()+"/"+getCallerFunctionName()+"] > §c" + message);
+        if(debug) {
+            XanApi.instance.broadcast.broadcastRaw("["+prefix+"/Error] " + "["+getCallerClassName()+"] §8> §c" + message,"xanapi.debug.read");
+        }
+    }
+
     public void debug(String message) {
         if(debug) {
-            System.out.println("["+prefix+"/Debug] " + "["+getCallerClassName()+"] > " + message);
+            Bukkit.getConsoleSender().sendMessage("["+prefix+"/Debug] " + "["+getCallerClassName()+"] > " + message);
             XanApi.instance.broadcast.broadcastRaw("["+prefix+"/Debug] " + "["+getCallerClassName()+"] §8> §7" + message,"xanapi.debug.read");
         }
     }

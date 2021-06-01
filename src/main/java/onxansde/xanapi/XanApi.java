@@ -6,6 +6,8 @@ import onxansde.xanapi.commands.XanApiCommand;
 import onxansde.xanapi.events.JoinLeave;
 import onxansde.xanapi.events.MenuListener;
 import onxansde.xanapi.utils.*;
+import onxansde.xanapi.utils.Mysql.MySql;
+import onxansde.xanapi.utils.Mysql.MySqlUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.RegisteredServiceProvider;
@@ -30,6 +32,9 @@ public final class XanApi extends JavaPlugin {
     public LuckPerms perms;
     public PermUtils permUtils;
     public Economy economy;
+    public MySql mysql;
+    public MySqlUtil mySqlUtil;
+
 
     @Override
     public void onEnable() {
@@ -41,10 +46,10 @@ public final class XanApi extends JavaPlugin {
         broadcast = new Broadcast();
         permUtils = new PermUtils();
         configManager = new ConfigManager();
+        mySqlUtil = new MySqlUtil();
 
         logger.log("Config setup...");
         reloadConfig();
-
 
         RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
         if (provider != null) {
@@ -76,6 +81,12 @@ public final class XanApi extends JavaPlugin {
         config = configManager.getFileAsConfig("XanApi","config.yml");
 
         prefix = config.getString("prefix");
+
+        logger.log("Mysql setup...");
+        if(mysql != null) {
+            if(mysql.isConnected()) mysql.disconnect();
+        }
+        mysql = new MySql(config.getString("mysql.host"),config.getInt("mysql.port"),config.getString("mysql.database"),config.getString("mysql.username"),config.getString("mysql.password"));
     }
 
     private boolean setupEconomy() {

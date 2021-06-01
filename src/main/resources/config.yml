@@ -1,5 +1,12 @@
 prefix: "§5XanApi §8> §7"
 
+mysql:
+  host: "null"
+  port: 3306
+  database: "null"
+  username: "null"
+  password: "null"
+
 messages:
   noperms: "§cDazu hast du keine Rechte!"
   playernotfound: "Der Spieler §c%player%§7 wurde nicht gefunden!"

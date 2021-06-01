@@ -10,6 +10,8 @@ import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.milkbowl.vault.economy.EconomyResponse;
 import onxansde.xanapi.XanApi;
+import onxansde.xanapi.utils.Mysql.MySqlPlayerObject;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -24,18 +26,26 @@ public class AdvancedPlayer {
     //Attributes
     public Player player;
 
+    public MySqlPlayerObject mySqlPlayerObject;
+
     //Constructor
     public AdvancedPlayer(Player player) {
         this.player = player;
+        loadMysqlObject();
     }
 
     //Functions
-    public boolean isAdmin() {
-        return hasPermission("xanapi.admin",true,false);
+
+    public String getName() {
+        return player.getName();
     }
 
-    public boolean isAdminSilent() {
-        return hasPermission("xanapi.admin",false,false);
+    public UUID getUuid() {
+        return player.getUniqueId();
+    }
+
+    public String getIpAddress() {
+        return player.getAddress().getAddress().toString();
     }
 
     public boolean hasPermission(String permission, boolean notify) {
@@ -132,6 +142,17 @@ public class AdvancedPlayer {
         XanApi.instance.perms.getUserManager().saveUser(user);
     }
 
+    public void loadMysqlObject() {
+        Bukkit.getScheduler().runTaskAsynchronously(XanApi.getInstance(), () -> {
+            MySqlPlayerObject object = XanApi.getInstance().mySqlUtil.getMySqlPlayerByUUID(getUuid().toString());
+
+            if(object == null) {
+                XanApi.getInstance().mySqlUtil.saveMysqlPlayer(this);
+                object = XanApi.getInstance().mySqlUtil.getMySqlPlayerByUUID(getUuid().toString());
+            }
+            mySqlPlayerObject = object;
+        });
+    }
 
 
     public void sendMessage(String message) {
