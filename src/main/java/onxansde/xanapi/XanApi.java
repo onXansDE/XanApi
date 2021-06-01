@@ -21,12 +21,15 @@ public final class XanApi extends JavaPlugin {
     public static FileConfiguration config;
 
     public Players players = new Players();
+    public Logger logger;
 
     @Override
     public void onEnable() {
         // Plugin startup logic
 
         instance = this;
+
+        logger = new Logger();
 
         saveDefaultConfig();
         config = getConfig();

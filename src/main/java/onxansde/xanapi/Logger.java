@@ -4,19 +4,12 @@ import onxansde.xanapi.utils.Broadcast;
 
 public class Logger {
 
-    private static Logger instance;
-
     public String prefix = "XanApi";
 
     public boolean debug = true;
 
     public Logger() {
         log("Initialized");
-    }
-
-    public static Logger get() {
-        if(instance == null) instance = new Logger();
-        return instance;
     }
 
     public void log(String message) {
