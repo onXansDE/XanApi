@@ -20,9 +20,9 @@ public final class XanApi extends JavaPlugin {
         return instance;
     }
 
-    public static String prefix = "§5XanApi §8> §7";
+    public String prefix = "§5XanApi §8> §7";
 
-    public static FileConfiguration config;
+    public FileConfiguration config;
 
     public Players players = new Players();
     public Logger logger;

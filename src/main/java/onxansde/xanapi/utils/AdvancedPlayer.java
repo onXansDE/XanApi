@@ -39,7 +39,7 @@ public class AdvancedPlayer {
     public boolean hasPermission(String permission, boolean notify) {
         if(player.hasPermission(permission)) return true;
         if(notify) {
-            sendMessage(XanApi.prefix + ChatColor.translateAlternateColorCodes('&',XanApi.config.getString("messages.noperms")));
+            sendMessage(XanApi.instance.prefix + ChatColor.translateAlternateColorCodes('&',XanApi.instance.config.getString("messages.noperms")));
         }
         return false;
     }
@@ -53,7 +53,7 @@ public class AdvancedPlayer {
         if(player.hasPermission(permission)) return true;
         if(allowop && player.isOp()) return true;
         if(notify) {
-            sendMessage(XanApi.prefix + ChatColor.translateAlternateColorCodes('&',XanApi.config.getString("messages.noperms")));
+            sendMessage(XanApi.instance.prefix + ChatColor.translateAlternateColorCodes('&',XanApi.instance.config.getString("messages.noperms")));
         }
         return false;
     }
@@ -133,7 +133,7 @@ public class AdvancedPlayer {
 
 
     public void sendMessage(String message) {
-        player.sendMessage(XanApi.prefix + message);
+        player.sendMessage(XanApi.instance.prefix + message);
     }
 
     public void sendRawMessage(String message) {
