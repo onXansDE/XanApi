@@ -13,7 +13,7 @@ public class DebugCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(sender instanceof Player) {
             if(XanApi.instance.players.getPlayerByUuid(((Player)sender).getUniqueId()).hasPermission("xanapi.debug.toggle",true)) {
-                Logger.get().debug = !Logger.get().debug;
+                XanApi.getInstance().logger.debug = !XanApi.getInstance().logger.debug;
             }
         }
         return false;
