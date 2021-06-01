@@ -8,6 +8,7 @@ import net.luckperms.api.node.types.PermissionNode;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
+import net.milkbowl.vault.economy.EconomyResponse;
 import onxansde.xanapi.XanApi;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -99,6 +100,19 @@ public class AdvancedPlayer {
         Node node = PermissionNode.builder(permission).build();
         user.data().add(node);
         XanApi.instance.perms.getUserManager().saveUser(user);
+    }
+
+    public int getBalance() {
+        return (int) XanApi.instance.economy.getBalance(player);
+    }
+
+    public void depositMoney(int amount) {
+        XanApi.instance.economy.depositPlayer(player, amount);
+    }
+
+    public boolean withdrawMoney(int amount) {
+        EconomyResponse response = XanApi.instance.economy.withdrawPlayer(player, amount);
+        return response.transactionSuccess();
     }
 
     public void removePermission(String permission) {

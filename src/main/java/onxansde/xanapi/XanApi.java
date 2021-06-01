@@ -1,6 +1,7 @@
 package onxansde.xanapi;
 
 import net.luckperms.api.LuckPerms;
+import net.milkbowl.vault.economy.Economy;
 import onxansde.xanapi.commands.DebugCommand;
 import onxansde.xanapi.events.JoinLeave;
 import onxansde.xanapi.events.MenuListener;
@@ -25,6 +26,7 @@ public final class XanApi extends JavaPlugin {
     public Players players = new Players();
     public Logger logger;
     public LuckPerms perms;
+    public Economy economy;
 
     @Override
     public void onEnable() {
@@ -43,6 +45,14 @@ public final class XanApi extends JavaPlugin {
         RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
         if (provider != null) {
             perms = provider.getProvider();
+        } else {
+            logger.log("LuckPerms Not found! Disabled!");
+            getServer().getPluginManager().disablePlugin(this);
+        }
+
+        if(!setupEconomy()) {
+            logger.log("Vault Not found! Disabled!");
+            getServer().getPluginManager().disablePlugin(this);
         }
 
         Bukkit.getPluginManager().registerEvents(new JoinLeave(), this);
@@ -52,5 +62,17 @@ public final class XanApi extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+    }
+
+    private boolean setupEconomy() {
+        if (getServer().getPluginManager().getPlugin("Vault") == null) {
+            return false;
+        }
+        RegisteredServiceProvider<Economy> rsp = getServer().getServicesManager().getRegistration(Economy.class);
+        if (rsp == null) {
+            return false;
+        }
+        economy = rsp.getProvider();
+        return economy != null;
     }
 }
