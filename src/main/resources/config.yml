@@ -1,4 +1,5 @@
 prefix: "§5XanApi §8> §7"
 
 messages:
-  noperms: "&cDazu hast du keine Rechte!"
+  noperms: "§cDazu hast du keine Rechte!"
+  playernotfound: "Der Spieler §c%player%§7 wurde nicht gefunden!"

@@ -10,6 +10,8 @@ import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.milkbowl.vault.economy.EconomyResponse;
 import onxansde.xanapi.XanApi;
+import org.bukkit.Location;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -143,6 +145,18 @@ public class AdvancedPlayer {
 
     public void sendActionBarMessage(String message) {
         player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(message));
+    }
+
+    public void teleport(Location location) {
+        player.teleport(location);
+    }
+
+    public void teleport(Entity entity) {
+        player.teleport(entity.getLocation());
+    }
+
+    public Location getLocation() {
+        return player.getLocation();
     }
 
     public boolean addItemToInv(ItemStack item) {
