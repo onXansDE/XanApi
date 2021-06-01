@@ -6,7 +6,7 @@ public class Logger {
 
     public String prefix = "XanApi";
 
-    public boolean debug = true;
+    public boolean debug = false;
 
     public Logger() {
         log("Initialized");
@@ -14,6 +14,9 @@ public class Logger {
 
     public void log(String message) {
         System.out.println("["+prefix+"] " + "["+getCallerClassName()+"/"+getCallerFunctionName()+"] > " + message);
+        if(debug) {
+            XanApi.instance.broadcast.broadcastRaw("["+prefix+"/Debug] " + "["+getCallerClassName()+"] §8> §7" + message,"xanapi.debug.read");
+        }
     }
 
     public void debug(String message) {

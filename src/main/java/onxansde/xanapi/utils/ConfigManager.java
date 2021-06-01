@@ -1,7 +1,6 @@
 package onxansde.xanapi.utils;
 
 import onxansde.xanapi.XanApi;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.*;
