@@ -35,7 +35,7 @@ public final class XanApi extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
-
+        //Commit
         instance = this;
 
         logger = new Logger();
