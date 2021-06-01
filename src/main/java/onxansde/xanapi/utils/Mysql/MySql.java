@@ -32,6 +32,8 @@ public class MySql {
                 con = DriverManager.getConnection("jdbc:mysql://"+host+":"+port+"/" + database + "?autoReconnect=true", user, password);
                 if(isConnected()) {
                     XanApi.getInstance().logger.log("Connected to database!");
+                    XanApi.getInstance().mySqlUtil.updateInfos();
+                    XanApi.getInstance().mySqlUtil.sendMySqlStatus(Bukkit.getConsoleSender());
                 }
             } catch (SQLException throwables) {
                 XanApi.getInstance().logger.logerror("Mysql: Failed to connect!");

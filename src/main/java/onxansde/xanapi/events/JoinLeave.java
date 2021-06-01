@@ -14,7 +14,7 @@ public class JoinLeave implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlayerJoin(PlayerJoinEvent e) {
         AdvancedPlayer player = new AdvancedPlayer(e.getPlayer());
-
+        player.loadMysqlObjectOnJoin();
         XanApi.getInstance().players.list.add(player);
         XanApi.getInstance().logger.log("Registered player " + e.getPlayer().getName());
     }

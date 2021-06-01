@@ -11,12 +11,14 @@ import net.md_5.bungee.api.chat.TextComponent;
 import net.milkbowl.vault.economy.EconomyResponse;
 import onxansde.xanapi.XanApi;
 import onxansde.xanapi.utils.Mysql.MySqlPlayerObject;
+import onxansde.xanapi.utils.Mysql.MySqlUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -31,7 +33,6 @@ public class AdvancedPlayer {
     //Constructor
     public AdvancedPlayer(Player player) {
         this.player = player;
-        loadMysqlObject();
     }
 
     //Functions
@@ -45,7 +46,7 @@ public class AdvancedPlayer {
     }
 
     public String getIpAddress() {
-        return player.getAddress().getAddress().toString();
+        return player.getAddress().getAddress().toString().replace("/","");
     }
 
     public boolean hasPermission(String permission, boolean notify) {
@@ -140,6 +141,21 @@ public class AdvancedPlayer {
         Node node = PermissionNode.builder(permission).build();
         user.data().remove(node);
         XanApi.instance.perms.getUserManager().saveUser(user);
+    }
+
+    public void loadMysqlObjectOnJoin() {
+        Bukkit.getScheduler().runTaskAsynchronously(XanApi.getInstance(), () -> {
+            MySqlPlayerObject object = XanApi.getInstance().mySqlUtil.getMySqlPlayerByUUID(getUuid().toString());
+
+            if(object == null) {
+                XanApi.getInstance().mySqlUtil.saveMysqlPlayer(this);
+                object = XanApi.getInstance().mySqlUtil.getMySqlPlayerByUUID(getUuid().toString());
+            }
+            object.lastJoinTime = new Timestamp(System.currentTimeMillis());
+            object.name = getName();
+            mySqlPlayerObject = object;
+            XanApi.getInstance().mySqlUtil.updateMysqlPlayer(object);
+        });
     }
 
     public void loadMysqlObject() {
