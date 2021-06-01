@@ -1,5 +1,6 @@
 package onxansde.xanapi;
 
+import onxansde.xanapi.commands.DebugCommand;
 import onxansde.xanapi.events.JoinLeave;
 import onxansde.xanapi.events.MenuListener;
 import onxansde.xanapi.utils.Players;
@@ -31,8 +32,9 @@ public final class XanApi extends JavaPlugin {
         config = getConfig();
         prefix = config.getString("prefix");
 
+        getCommand("debug").setExecutor(new DebugCommand());
+
         Bukkit.getPluginManager().registerEvents(new JoinLeave(), this);
-        Bukkit.getPluginManager().registerEvents(new MenuListener(), this);
     }
 
     @Override
