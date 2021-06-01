@@ -1,6 +1,7 @@
 package onxansde.xanapi.menus;
 
 import onxansde.xanapi.utils.AdvancedPlayer;
+import org.bukkit.entity.Player;
 
 public class PlayerMenuUtil {
 
@@ -14,5 +15,9 @@ public class PlayerMenuUtil {
 
     public AdvancedPlayer getOwner() {
         return owner;
+    }
+
+    public Player getPlayer() {
+        return owner.player;
     }
 }
