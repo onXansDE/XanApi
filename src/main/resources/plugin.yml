@@ -1,6 +1,6 @@
 name: XanApi
 version: ${project.version}
-main: onxans.xanapi.XanApi
+main: onxansde.xanapi.XanApi
 api-version: 1.16
 authors: [ onXans ]
 description: Needed for a lot of Plugins by onXans

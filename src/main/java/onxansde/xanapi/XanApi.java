@@ -25,6 +25,8 @@ public final class XanApi extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
 
+        instance = this;
+
         saveDefaultConfig();
         config = getConfig();
         prefix = config.getString("prefix");
