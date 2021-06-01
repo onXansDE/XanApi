@@ -5,6 +5,7 @@ import net.milkbowl.vault.economy.Economy;
 import onxansde.xanapi.commands.DebugCommand;
 import onxansde.xanapi.events.JoinLeave;
 import onxansde.xanapi.events.MenuListener;
+import onxansde.xanapi.utils.Broadcast;
 import onxansde.xanapi.utils.Players;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -25,6 +26,7 @@ public final class XanApi extends JavaPlugin {
 
     public Players players = new Players();
     public Logger logger;
+    public Broadcast broadcast;
     public LuckPerms perms;
     public Economy economy;
 

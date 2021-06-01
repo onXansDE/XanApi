@@ -19,7 +19,7 @@ public class Logger {
     public void debug(String message) {
         if(debug) {
             System.out.println("["+prefix+"/Debug] " + "["+getCallerClassName()+"] > " + message);
-            Broadcast.broadcastRaw("["+prefix+"/Debug] " + "["+getCallerClassName()+"] §8> §7" + message);
+            XanApi.instance.broadcast.broadcastRaw("["+prefix+"/Debug] " + "["+getCallerClassName()+"] §8> §7" + message,"xanapi.debug.read");
         }
     }
 
