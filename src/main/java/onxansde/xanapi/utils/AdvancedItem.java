@@ -260,4 +260,9 @@ public class AdvancedItem implements java.io.Serializable {
 
         return item;
     }
+
+    public static AdvancedItem makeAdvancedItem(Material material, String displayName, String... lore) {
+
+        return new AdvancedItem(makeItem(material,displayName, lore));
+    }
 }

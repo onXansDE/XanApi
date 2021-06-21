@@ -1,7 +1,8 @@
-package onxansde.xanapi.utils.Mysql;
+package onxansde.xanapi.modules;
 
 import onxansde.xanapi.XanApi;
 import onxansde.xanapi.utils.AdvancedPlayer;
+import onxansde.xanapi.utils.Mysql.MySqlPlayerObject;
 import onxansde.xanapi.utils.StringProccessing;
 import org.bukkit.command.CommandSender;
 

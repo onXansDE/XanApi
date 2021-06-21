@@ -1,4 +1,4 @@
-package onxansde.xanapi.utils;
+package onxansde.xanapi.modules;
 
 import net.luckperms.api.model.group.Group;
 import onxansde.xanapi.XanApi;

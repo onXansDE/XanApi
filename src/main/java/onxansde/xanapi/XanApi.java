@@ -5,9 +5,9 @@ import net.milkbowl.vault.economy.Economy;
 import onxansde.xanapi.commands.XanApiCommand;
 import onxansde.xanapi.events.JoinLeave;
 import onxansde.xanapi.events.MenuListener;
+import onxansde.xanapi.modules.*;
 import onxansde.xanapi.utils.*;
 import onxansde.xanapi.utils.Mysql.MySql;
-import onxansde.xanapi.utils.Mysql.MySqlUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.RegisteredServiceProvider;
@@ -35,6 +35,9 @@ public final class XanApi extends JavaPlugin {
     public MySql mysql;
     public MySqlUtil mySqlUtil;
 
+    public CounterUtil slowCounterUtil = new CounterUtil(600,1,5, 20);
+    public CounterUtil fastCounterUtil = new CounterUtil(600,1,1, 10);
+    public CounterUtil rapidCounterUtil = new CounterUtil(600,5,1, 2);
 
     @Override
     public void onEnable() {
@@ -47,6 +50,10 @@ public final class XanApi extends JavaPlugin {
         permUtils = new PermUtils();
         configManager = new ConfigManager();
         mySqlUtil = new MySqlUtil();
+
+        slowCounterUtil.startTimer();
+        fastCounterUtil.startTimer();
+        rapidCounterUtil.startTimer();
 
         logger.log("Config setup...");
         reloadConfig();

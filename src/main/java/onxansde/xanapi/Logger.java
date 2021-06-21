@@ -1,6 +1,5 @@
 package onxansde.xanapi;
 
-import onxansde.xanapi.utils.Broadcast;
 import org.bukkit.Bukkit;
 
 public class Logger {

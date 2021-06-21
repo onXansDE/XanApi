@@ -1,6 +1,7 @@
-package onxansde.xanapi.utils;
+package onxansde.xanapi.modules;
 
 import onxansde.xanapi.XanApi;
+import onxansde.xanapi.utils.StringProccessing;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.*;
@@ -19,6 +20,10 @@ public class ConfigManager {
             folder.mkdirs();
             XanApi.instance.logger.log("Creating Module Folder > " + module);
         }
+    }
+
+    public File getFile(String module, String name) {
+        return new File(getModuleFolder(module), name);
     }
 
     private File getModuleFolder(String module) {

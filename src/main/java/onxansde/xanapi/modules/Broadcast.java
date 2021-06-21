@@ -1,6 +1,7 @@
-package onxansde.xanapi.utils;
+package onxansde.xanapi.modules;
 
 import onxansde.xanapi.XanApi;
+import onxansde.xanapi.utils.AdvancedPlayer;
 
 public class Broadcast {
 
